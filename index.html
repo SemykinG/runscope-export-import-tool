@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Runscope Export/Import Tool</title>
+		<meta name="Grigorij Semykin" content="SitePoint">
+
+		<link rel="stylesheet" href="./css/styles.css?v=1.0">
+	</head>
+
+	<body>
+		<div id="root">
+			<div id="controls_div">
+				<button class="accordion active">DETAILS</button>
+				<div class="panel" style="display: flex">
+					<table id="details_table">
+						<tbody>
+							<tr>
+								<th>
+									<label for="runscope_api_key_input">Runscope API Key</label>
+									<input class="inputField" type="password" id="runscope_api_key_input" name="" value="9fa248f2-83bb-41b9-8757-39ca3cdefcb4">
+								</th>
+							</tr>
+
+
+							<tr>
+								<td>
+									<label for="runscope_options">Runscope Area</label>
+									<select name="runscope_options" id="runscope_options">
+										<option value="ACCOUNT_TEAMS">ACCOUNT / TEAMS</option>
+										<option value="BUCKETS">BUCKETS</option>
+										<option value="SHARED_ENVIRONMENTS">SHARED ENVIRONMENTS</option>
+										<option value="TESTS">TESTS</option>
+										<option value="TEST_DETAILS">TEST DETAILS</option>
+									</select>
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									<label for="runscope_team_id_input">Team ID</label>
+									<input class="inputField" type="text" id="runscope_team_id_input">
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									<label for="runscope_bucket_id_input">Bucket ID(s)</label>
+									<input class="inputField" type="text" id="runscope_bucket_id_input">
+								</td>
+							</tr>
+
+							<tr>
+								<td>
+									<label for="runscope_test_id_input">Test ID</label>
+									<input class="inputField" type="text" id="runscope_test_id_input">
+								</td>
+							</tr>
+
+							<tr>
+								<td><input id="get_details_button" type="button" value="GET DETAILS" onclick="getDetails()"/></td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+
+				<button class="accordion">EXPORT</button>
+				<div class="panel">
+					<div id="checkboxes_div">
+						<div>
+							<div>
+								<input type="checkbox" id="buckets_checkbox">
+								<label for="buckets_checkbox">Buckets</label>
+							</div>
+						</div>
+						<div>
+							<input type="checkbox" id="shared_environments_checkbox">
+							<label for="shared_environments_checkbox">Shared Environments</label>
+						</div>
+						<div id="row_div">
+							<div>
+								<input type="checkbox" id="test_details_checkbox">
+								<label for="test_details_checkbox">Test Details</label>
+							</div>
+							<div>
+								<input type="checkbox" id="no_default_test_environments_checkbox" checked>
+								<label for="no_default_test_environments_checkbox">No default test env. 'Test Settings'</label>
+							</div>
+						</div>
+						<div>
+							<input type="checkbox" id="all_in_one_checkbox">
+							<label for="all_in_one_checkbox">All in One</label>
+						</div>
+
+						<input id="export_button" type="button" value="EXPORT" onclick="exportAll()"/>
+					</div>
+				</div>
+
+				<button class="accordion">IMPORT</button>
+				<div class="panel">
+					<form id="upload">
+						<label for="file">File to upload</label>
+						<input type="file" id="file" accept=".json">
+						<button>Upload</button>
+					</form>
+
+					<div id="import_div" hidden>
+						<div id="import_json_structure_div"></div>
+
+						<div id="import_button_div"></div>
+					</div>
+				</div>
+			</div>
+
+			<div id="console_div">
+				<label for="textArea">"Console"</label>
+				<textarea id="textArea" rows="" cols="">...</textarea>
+			</div>
+		</div>
+
+		<script src="./js/main.js"></script>
+		<script src="./js/get_details.js"></script>
+		<script src="./js/export.js"></script>
+		<script src="./js/import.js"></script>
+		<script src="./js/html_constructor.js"></script>
+	</body>
+</html>
